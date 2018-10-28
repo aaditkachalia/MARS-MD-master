@@ -1,0 +1,21 @@
+{% extends 'hosp/base.html' %}
+{% block patients_active %}active{% endblock %}
+
+{% block body %}
+<font color="black">
+<div class="container">
+    <div class="panel-group">
+    {%if users%}
+        <div class="panel panel-default">
+            <div class="panel-heading">Name</div>
+            {%for user in users %}
+                <div class="panel-body">Dr.{{user.username}}{{ " " }}{{user.last_name}}</div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h3>There are no Doctors</h3>
+    {% endif %}
+    </div>
+</div>
+</font>
+{% endblock %}

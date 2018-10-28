@@ -1,0 +1,54 @@
+{% extends 'hosp/base.html' %}
+{% block patients_active %}active{% endblock %}
+
+{% block body %}
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+    </head>
+<font color="black">
+<div class="container">
+    <div class="panel-group">
+    {%if users%}
+        <div class="panel panel-default">
+            <h4><div class="panel-heading">Doctors</div></h4>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Specialization</th>
+              </tr>
+            {%for user in users %}
+                     <tr>
+                    <td>Dr.{{user.username}}{{ " " }}{{user.last_name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>Germany</td>
+                     </tr>
+            {% endfor %}
+            </table>
+             </div>
+            {% else %}
+        <h3>There are no Doctors</h3>
+    {% endif %}
+    </div>
+</div>
+</font>
+{% endblock %}
+
+
+
